@@ -19,13 +19,27 @@ def show_menu():
     print("0. 종료")
     print("================================")
 
+    # 프롬프트를 추가하는 함수
+def add_prompt():
+    print("\n----- 프롬프트 추가 -----")
+    제목 = input("제목: ")
+    내용 = input("내용: ")
+    카테고리 = input("카테고리: ")
+
+    새프롬프트 = {"제목": 제목, "내용": 내용, "카테고리": 카테고리, "즐겨찾기": False}
+    prompts.append(새프롬프트)
+
+    print(f"'{제목}' 프롬프트가 추가되었어요! ✅")
+
 
 # 프로그램 시작!
 while True:
     show_menu()
     choice = input("번호를 선택하세요: ")
 
-    if choice == "0":
+    if choice == "1":
+        add_prompt()
+    elif choice == "0":
         print("프로그램을 종료합니다. 안녕히 가세요! 👋")
         break
     else:
