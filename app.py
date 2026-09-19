@@ -42,6 +42,25 @@ def show_list():
             카테고리 = prompts[i]["카테고리"]
             print(f"{i+1}. {제목} [{카테고리}]")
 
+                # 프롬프트 상세 보기 함수
+def show_detail():
+    show_list()  # 먼저 목록을 보여줘서 번호를 고르게 함
+
+    if prompts == []:
+        return  # 목록이 비어있으면 여기서 끝!
+
+    번호 = input("\n자세히 볼 번호를 선택하세요: ")
+
+    if 번호.isdigit() and 1 <= int(번호) <= len(prompts):
+        선택 = prompts[int(번호) - 1]  # 번호에 맞는 프롬프트 꺼내기
+        print("\n----- 상세 정보 -----")
+        print(f"📌 제목: {선택['제목']}")
+        print(f"📝 내용: {선택['내용']}")
+        print(f"📁 카테고리: {선택['카테고리']}")
+        print(f"⭐ 즐겨찾기: {'예' if 선택['즐겨찾기'] else '아니오'}")
+    else:
+        print("잘못된 번호예요! 😅")
+
 
 # 프로그램 시작!
 while True:
@@ -52,6 +71,8 @@ while True:
         add_prompt()
     elif choice == "2":
         show_list()
+    elif choice == "5":
+        show_detail()    
     elif choice == "0":
         print("프로그램을 종료합니다. 안녕히 가세요! 👋")
         break
