@@ -94,6 +94,25 @@ def search_prompt():
     if 찾은개수 == 0:
         print(f"'{검색어}'에 대한 검색 결과가 없어요! 😅")
 
+            # 프롬프트 상세 내용을 보는 함수
+def show_detail():
+    print("\n----- 상세 보기 -----")
+
+    # 먼저 목록을 보여줌
+    for i in range(len(prompts)):
+        print(f"{i+1}. {prompts[i]['제목']}")
+
+    번호 = input("\n볼 프롬프트 번호를 입력하세요: ")
+    번호 = int(번호) - 1
+
+    if 번호 >= 0 and 번호 < len(prompts):
+        선택 = prompts[번호]
+        print(f"\n제목: {선택['제목']}")
+        print(f"카테고리: {선택['카테고리']}")
+        print(f"내용: {선택['내용']}")
+    else:
+        print("잘못된 번호예요! 😅")
+
 
 # 프로그램 시작!
 while True:
@@ -110,6 +129,8 @@ while True:
         search_prompt() 
     elif choice == "5":
         show_detail()    
+    elif choice == "5":
+        show_detail()
     elif choice == "0":
         print("프로그램을 종료합니다. 안녕히 가세요! 👋")
         break
