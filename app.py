@@ -31,6 +31,17 @@ def add_prompt():
 
     print(f"'{제목}' 프롬프트가 추가되었어요! ✅")
 
+    # 프롬프트 목록을 보여주는 함수
+def show_list():
+    print("\n----- 프롬프트 목록 -----")
+    if prompts == []:
+        print("아직 저장된 프롬프트가 없어요! 😅")
+    else:
+        for i in range(len(prompts)):
+            제목 = prompts[i]["제목"]
+            카테고리 = prompts[i]["카테고리"]
+            print(f"{i+1}. {제목} [{카테고리}]")
+
 
 # 프로그램 시작!
 while True:
@@ -39,6 +50,8 @@ while True:
 
     if choice == "1":
         add_prompt()
+    elif choice == "2":
+        show_list()
     elif choice == "0":
         print("프로그램을 종료합니다. 안녕히 가세요! 👋")
         break
