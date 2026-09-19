@@ -61,6 +61,22 @@ def show_detail():
     else:
         print("잘못된 번호예요! 😅")
 
+            # 카테고리별로 조회하는 함수
+def show_category():
+    print("\n----- 카테고리별 조회 -----")
+
+    카테고리 = input("조회할 카테고리를 입력하세요: ")
+
+    찾은개수 = 0  # 몇 개 찾았는지 세는 변수
+    for i in range(len(prompts)):
+        if prompts[i]["카테고리"] == 카테고리:
+            제목 = prompts[i]["제목"]
+            print(f"{i+1}. {제목} [{카테고리}]")
+            찾은개수 = 찾은개수 + 1
+
+    if 찾은개수 == 0:
+        print(f"'{카테고리}' 카테고리에 프롬프트가 없어요! 😅")
+
 
 # 프로그램 시작!
 while True:
@@ -71,6 +87,8 @@ while True:
         add_prompt()
     elif choice == "2":
         show_list()
+    elif choice == "3":
+        show_category()    
     elif choice == "5":
         show_detail()    
     elif choice == "0":
