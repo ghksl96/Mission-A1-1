@@ -21,4 +21,12 @@ def show_menu():
 
 
 # 프로그램 시작!
-show_menu()
+while True:
+    show_menu()
+    choice = input("번호를 선택하세요: ")
+
+    if choice == "0":
+        print("프로그램을 종료합니다. 안녕히 가세요! 👋")
+        break
+    else:
+        print("아직 만들지 않은 기능이에요! 곧 추가할게요 😊")
