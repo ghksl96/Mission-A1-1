@@ -115,6 +115,21 @@ def toggle_favorite():
     else:
         print("잘못된 번호예요! 😅")
 
+                    # 즐겨찾기 목록만 보여주는 함수
+def show_favorites():
+    print("\n----- ⭐ 즐겨찾기 목록 -----")
+
+    찾은개수 = 0  # 몇 개 찾았는지 세기
+    for i in range(len(prompts)):
+        if prompts[i]["즐겨찾기"] == True:   # 별표 있는 것만!
+            제목 = prompts[i]["제목"]
+            카테고리 = prompts[i]["카테고리"]
+            print(f"{i+1}. {제목} [{카테고리}] ⭐")
+            찾은개수 = 찾은개수 + 1
+
+    if 찾은개수 == 0:
+        print("아직 즐겨찾기한 프롬프트가 없어요! 😅")
+
 
 # 프로그램 시작!
 while True:
@@ -133,6 +148,8 @@ while True:
         show_detail()    
     elif choice == "6":
         toggle_favorite()
+    elif choice == "7":          
+        show_favorites() 
     elif choice == "0":
         print("프로그램을 종료합니다. 안녕히 가세요! 👋")
         break
