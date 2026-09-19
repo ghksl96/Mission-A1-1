@@ -77,6 +77,23 @@ def show_category():
     if 찾은개수 == 0:
         print(f"'{카테고리}' 카테고리에 프롬프트가 없어요! 😅")
 
+            # 프롬프트를 검색하는 함수
+def search_prompt():
+    print("\n----- 프롬프트 검색 -----")
+
+    검색어 = input("검색어를 입력하세요: ")
+
+    찾은개수 = 0
+    for i in range(len(prompts)):
+        제목 = prompts[i]["제목"]
+        if 검색어 in 제목:
+            카테고리 = prompts[i]["카테고리"]
+            print(f"{i+1}. {제목} [{카테고리}]")
+            찾은개수 = 찾은개수 + 1
+
+    if 찾은개수 == 0:
+        print(f"'{검색어}'에 대한 검색 결과가 없어요! 😅")
+
 
 # 프로그램 시작!
 while True:
@@ -88,7 +105,9 @@ while True:
     elif choice == "2":
         show_list()
     elif choice == "3":
-        show_category()    
+        show_category()   
+    elif choice == "4":
+        search_prompt() 
     elif choice == "5":
         show_detail()    
     elif choice == "0":
